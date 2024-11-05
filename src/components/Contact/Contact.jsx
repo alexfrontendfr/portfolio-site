@@ -1,36 +1,49 @@
+// src/components/Contact/Contact.jsx
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { Mail, MessageSquare } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form submission logic here
-    console.log(formData);
-  };
+  const handleSubmit = async (formData) => {
+    try {
+      // Create email content
+      const emailContent = `
+Name: ${formData.name}
+Email: ${formData.email}
+Subject: ${formData.subject}
+Message: ${formData.message}
+      `;
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+      // Create mailto link
+      const mailtoLink = `mailto:contactalexfr@gmail.com?subject=${encodeURIComponent(
+        formData.subject
+      )}&body=${encodeURIComponent(emailContent)}`;
+
+      // Open email client
+      window.location.href = mailtoLink;
+
+      // Show success message
+      setSubmitStatus({
+        type: "success",
+        message:
+          "Thank you! Your message will be sent through your email client.",
+      });
+
+      return true;
+    } catch {
+      setSubmitStatus({
+        type: "error",
+        message: "There was an error. Please try again or email me directly.",
+      });
+      return false;
+    }
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="space-y-8"
-    >
-      <h2 className="text-2xl font-semibold">Contact Me</h2>
+    <div className="space-y-8">
+      <h2 className="text-2xl font-semibold mb-6">Contact Me</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6">
@@ -45,8 +58,8 @@ const Contact = () => {
               </div>
             </div>
             <p className="text-light-muted text-sm">
-              Feel free to reach out any time! I will get back to you as soon as
-              possible.
+              Feel free to reach out anytime! I&apos;ll get back to you as soon
+              as possible.
             </p>
           </div>
 
@@ -61,101 +74,27 @@ const Contact = () => {
               </div>
             </div>
             <p className="text-light-muted text-sm">
-              Lets schedule a call to discuss your project in detail.
+              Let&apos;s schedule a call to discuss your project in detail.
             </p>
           </div>
         </div>
 
-        <motion.form
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          onSubmit={handleSubmit}
-          className="space-y-4"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm text-light-muted mb-2"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-dark-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm text-light-muted mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-dark-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label
-              htmlFor="subject"
-              className="block text-sm text-light-muted mb-2"
+        <div>
+          {submitStatus.message && (
+            <div
+              className={`p-4 rounded-lg mb-4 ${
+                submitStatus.type === "success"
+                  ? "bg-green-500 bg-opacity-10 text-green-400"
+                  : "bg-red-500 bg-opacity-10 text-red-400"
+              }`}
             >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-3 bg-dark-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm text-light-muted mb-2"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={6}
-              className="w-full px-4 py-3 bg-dark-lighter rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="flex items-center gap-2 px-6 py-3 bg-primary text-dark-darker rounded-lg hover:bg-opacity-90 transition-colors"
-          >
-            Send Message
-            <Send size={18} />
-          </button>
-        </motion.form>
+              {submitStatus.message}
+            </div>
+          )}
+          <ContactForm onSubmit={handleSubmit} />
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

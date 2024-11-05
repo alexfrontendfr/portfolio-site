@@ -30,18 +30,23 @@ const Sidebar = ({ activePage, onPageChange }) => {
 
   const navItems = ["About", "Portfolio", "Resume", "Contact"];
 
+  const handleNavigation = (page) => {
+    onPageChange(page.toLowerCase());
+    setIsOpen(false); // Close mobile menu after navigation
+  };
+
   return (
     <aside
       className={`
-      lg:sticky lg:top-6 bg-[#131313] rounded-3xl p-6 
-      transition-all duration-300 ease-in-out
-      ${isOpen ? "h-auto" : "h-[140px] lg:h-auto"}
-    `}
+        lg:sticky lg:top-6 bg-[#131313] rounded-3xl p-6 
+        transition-all duration-300 ease-in-out
+        ${isOpen ? "h-auto" : "h-[140px] lg:h-auto"}
+      `}
     >
       <div className="flex items-center gap-4 lg:flex-col lg:items-center">
         <div className="relative w-20 h-20 lg:w-32 lg:h-32">
           <img
-            src="\src\assets\images\bitmojiAlex.png"
+            src="/src/assets/images/bitmojiAlex.png"
             alt="Alex Iulian"
             className="w-full h-full rounded-2xl object-cover"
           />
@@ -56,7 +61,8 @@ const Sidebar = ({ activePage, onPageChange }) => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden absolute top-4 right-4"
+          className="lg:hidden absolute top-4 right-4 p-2 hover:bg-[#1c1c1c] rounded-lg transition-colors"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -64,9 +70,10 @@ const Sidebar = ({ activePage, onPageChange }) => {
 
       <div
         className={`
-        mt-6 transition-all duration-300
-        ${isOpen ? "block" : "hidden lg:block"}
-      `}
+          mt-6 transition-all duration-300 ${
+            isOpen ? "block" : "hidden lg:block"
+          }
+        `}
       >
         <div className="space-y-4">
           {contactInfo.map((item, index) => (
@@ -101,7 +108,7 @@ const Sidebar = ({ activePage, onPageChange }) => {
             {navItems.map((item) => (
               <li key={item}>
                 <button
-                  onClick={() => onPageChange(item.toLowerCase())}
+                  onClick={() => handleNavigation(item)}
                   className={`
                     w-full px-4 py-2 text-left rounded-lg transition-colors
                     ${

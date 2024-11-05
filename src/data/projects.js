@@ -3,7 +3,7 @@ export const projects = [
     title: "API Forge",
     description:
       "Modern API testing tool with response formatting, schema validation, and mock API generation.",
-    image: "src/assets/images/projects/ApiForgeDisplay.png",
+    image: "/src/assets/images/projects/ApiForgeDisplay.png",
     github: "https://github.com/alexfrontendfr/api-forge",
     live: null,
     tech: ["React", "TypeScript", "Node.js"],
@@ -12,7 +12,7 @@ export const projects = [
   {
     title: "Kozijnen Frame Groep",
     description: "Professional website for a Dutch construction company.",
-    image: "src/assets/images/projects/KozijnenPresent.png",
+    image: "/src/assets/images/projects/KozijnenPresent.png",
     github: null,
     live: "https://www.kozijnenframegroep.nl/",
     tech: ["JavaScript", "Framer Motion", "SEO"],
@@ -21,7 +21,7 @@ export const projects = [
   {
     title: "Web Scrapper",
     description: "Advanced web scraping tool built with Python.",
-    image: "src/assets/images/projects/WebScraper.png",
+    image: "/src/assets/images/projects/WebScraper.png",
     github: "https://github.com/alexfrontendfr/scrapy-playwright",
     live: null,
     tech: ["Python", "Scrapy", "Playwright"],
@@ -31,7 +31,7 @@ export const projects = [
     title: "Shelby Inc",
     description:
       "Modern business consulting website with interactive features.",
-    image: "src/assets/images/projects/Shelby-Fnl.jpg",
+    image: "/src/assets/images/projects/Shelby-Fnl.jpg",
     github: null,
     live: "https://minimal-europe-513367.framer.app/",
     tech: ["React", "Framer", "UI/UX"],
@@ -40,7 +40,7 @@ export const projects = [
   {
     title: "Dorothy's Drag",
     description: "Event venue and entertainment website.",
-    image: "src/assets/images/projects/Dorothy-Final.jpg",
+    image: "/src/assets/images/projects/Dorothy-Final.jpg",
     github: null,
     live: "https://dorothyclub.framer.website/",
     tech: ["Framer", "JavaScript", "Animation"],
@@ -49,7 +49,7 @@ export const projects = [
   {
     title: "Not Alone",
     description: "Mental health support platform and community.",
-    image: "src/assets/images/projects/Not-Alone-new.jpg",
+    image: "/src/assets/images/projects/Not-Alone-new.jpg",
     github: "https://alexfrontendfr.github.io/not-alone/",
     live: "https://alexfrontendfr.github.io/not-alone/",
     tech: ["React", "Redux", "MongoDB"],
@@ -59,7 +59,7 @@ export const projects = [
     title: "LGBTQ+ Connect",
     description:
       "Community platform for LGBTQ+ individuals with modern design and features.",
-    image: "src/assets/images/projects/LGBTQConnectPresent.png",
+    image: "/src/assets/images/projects/LGBTQConnectPresent.png",
     github: "https://alexfrontendfr.github.io/lgbtq-connect/",
     live: "https://alexfrontendfr.github.io/lgbtq-connect/",
     tech: ["React", "Tailwind CSS", "Firebase"],
@@ -69,7 +69,7 @@ export const projects = [
     title: "Smart City Waste Management",
     description:
       "Comprehensive waste management solution for Swiss municipalities.",
-    image: "src/assets/images/projects/WasteManagement.png",
+    image: "/src/assets/images/projects/WasteManagement.png",
     github: "https://github.com/alexfrontendfr/smart-city-waste-management",
     live: null,
     tech: ["React", "Node.js", "MongoDB"],
@@ -79,7 +79,7 @@ export const projects = [
     title: "Framework Comparison Tool",
     description:
       "Interactive tool for comparing different frontend frameworks.",
-    image: "src/assets/images/projects/FrameWorkComparisonPresent.png",
+    image: "/src/assets/images/projects/FrameWorkComparisonPresent.png",
     github:
       "https://alexfrontendfr.github.io/framework-comparison-tool/#/comparison",
     live: "https://alexfrontendfr.github.io/framework-comparison-tool/#/comparison",
@@ -90,7 +90,7 @@ export const projects = [
     title: "Project Structure Visualizer",
     description:
       "A modern, interactive tool for visualizing project architectures with style.",
-    image: "src/assets/images/projects/ProjectStructureVPresent.png",
+    image: "/src/assets/images/projects/ProjectStructureVPresent.png",
     github: "https://github.com/alexfrontendfr/project-visualizer",
     live: null,
     tech: ["Python", "Flask", "TailwindCSS", "UX/UI", "Effects"],
