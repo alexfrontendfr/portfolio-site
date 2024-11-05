@@ -46,7 +46,7 @@ const Sidebar = ({ activePage, onPageChange }) => {
       <div className="flex items-center gap-4 lg:flex-col lg:items-center">
         <div className="relative w-20 h-20 lg:w-32 lg:h-32">
           <img
-            src="/src/assets/images/bitmojiAlex.png"
+            src="/portfolio-site/assets/images/bitmojiAlex.png"
             alt="Alex Iulian"
             className="w-full h-full rounded-2xl object-cover"
           />

@@ -1,11 +1,6 @@
-// vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 export default defineConfig({
   base: "/portfolio-site/",
@@ -13,10 +8,21 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
     },
   },
   build: {
+    outDir: "dist",
     assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          let extType = assetInfo.name.split(".")[1];
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            extType = "images";
+          }
+          return `assets/${extType}/[name]-[hash][extname]`;
+        },
+      },
+    },
   },
 });
