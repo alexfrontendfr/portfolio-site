@@ -1,5 +1,16 @@
 export const projects = [
   {
+    title: "Network Mapper",
+    description:
+      "A full-stack application for scanning and visualizing network devices. Built with Python (Flask) backend and React frontend.",
+    image: import.meta.env.DEV
+      ? "/images/projects/NetWork-Mapper.png"
+      : "/portfolio-site/images/projects/NetWork-Mapper.png",
+    github: "https://github.com/alexfrontendfr/network-mapper",
+    tech: ["React", "TypeScript", "Node.js"],
+    category: "Development",
+  },
+  {
     title: "API Forge",
     description:
       "Modern API testing tool with response formatting, schema validation, and mock API generation.",
@@ -7,7 +18,7 @@ export const projects = [
       ? "/images/projects/ApiForgeDisplay.png"
       : "/portfolio-site/images/projects/ApiForgeDisplay.png",
     github: "https://github.com/alexfrontendfr/api-forge",
-    live: null,
+    live: "https://alexfrontendfr.github.io/api-forge/",
     tech: ["React", "TypeScript", "Node.js"],
     category: "Development",
   },

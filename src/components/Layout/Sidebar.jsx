@@ -24,7 +24,10 @@ const Sidebar = ({ activePage, onPageChange }) => {
 
   const socialLinks = [
     { icon: <Github />, url: "https://github.com/alexfrontendfr" },
-    { icon: <Globe />, url: "https://alexfolio.nl" },
+    {
+      icon: <Globe />,
+      url: "https://alexfrontendfr.github.io/portfolio-site/",
+    },
     { icon: <Linkedin />, url: "https://linkedin.com/in/alex-iulian-dev" },
   ];
 
